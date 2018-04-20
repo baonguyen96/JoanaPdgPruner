@@ -1,0 +1,542 @@
+SDG "samples.RangeSCD2.main(java.lang.String[])" {
+ENTR 1 {
+O entry;
+V "samples.RangeSCD2.main(java.lang.String[])";
+P 4;
+S "samples/RangeSCD2.java":0,0-0,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-1;
+Z 0;
+C "Application";
+CD 5;
+CD 6;
+CD 8;
+CD 12;
+CD 13;
+CD 14;
+CD 18;
+CD 22;
+CD 24;
+PS 96;
+PS 882;
+PS 883;
+HE 2;
+HE 5;
+HE 6;
+HE 8;
+HE 12;
+HE 13;
+HE 14;
+HE 18;
+HE 22;
+HE 24;
+}
+NORM 5 {
+O declaration;
+V "v6 = new java.util.Scanner";
+T "Ljava/util/Scanner";
+P 4;
+S "samples/RangeSCD2.java":22,0-22,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":16;
+Z 0;
+}
+EXPR 6 {
+O reference;
+V "v7 = java.lang.System.in";
+T "Ljava/io/InputStream";
+P 4;
+S "samples/RangeSCD2.java":22,0-22,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":20;
+Z 0;
+}
+CALL 8 {
+O call;
+V "v6.<init>(v7)";
+T "V";
+P 4;
+S "samples/RangeSCD2.java":22,0-22,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":23;
+Z 0;
+U "java.util.Scanner.<init>(Ljava/io/InputStream;)V";
+PS 11;
+CE 4767;
+CF 4767;
+HE 4767;
+}
+NORM 12 {
+O declaration;
+V "v9 = new java.io.PrintWriter";
+T "Ljava/io/PrintWriter";
+P 4;
+S "samples/RangeSCD2.java":23,0-23,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":28;
+Z 0;
+DD 22;
+CF 13;
+}
+NORM 13 {
+O declaration;
+V "v10 = new java.io.File";
+T "Ljava/io/File";
+P 4;
+S "samples/RangeSCD2.java":23,0-23,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":32;
+Z 0;
+}
+CALL 14 {
+O call;
+V "v10.<init>(#(test.txt))";
+T "V";
+P 4;
+S "samples/RangeSCD2.java":23,0-23,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":38;
+Z 0;
+PS 17;
+CL 253: "virtual";
+PS 895;
+CF 4834;
+CE 4834;
+}
+CALL 18 {
+O call;
+V "v9.<init>(v10)";
+T "V";
+P 4;
+S "samples/RangeSCD2.java":23,0-23,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":41;
+Z 0;
+U "java.io.PrintWriter.<init>(Ljava/io/File;)V";
+PS 21;
+CE 4768;
+CF 4768;
+HE 4768;
+}
+EXPR 22 {
+O modify;
+V "samples.RangeSCD2.fout = v9";
+T "Ljava/io/PrintWriter";
+P 4;
+S "samples/RangeSCD2.java":23,0-23,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":44;
+Z 0;
+CE 23;
+HE 23;
+}
+PRED 24 {
+O IF;
+V "if (#(0) > #(20)) goto 68";
+T "Z";
+P 4;
+S "samples/RangeSCD2.java":25,0-25,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":51;
+Z 0;
+CD 25;
+CD 30;
+CD 31;
+CD 56;
+CD 58;
+CD 59;
+CD 62;
+CF 31;
+HE 25;
+HE 30;
+HE 31;
+}
+CALL 25 {
+O call;
+V "v28 = SRaise(#(staff.std), #(0.0 f))";
+T "F";
+P 4;
+S "samples/RangeSCD2.java":26,0-26,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":57;
+Z 0;
+PS 29;
+CL 300: "virtual";
+PS 896;
+CF 4835;
+CE 4835;
+}
+NORM 30 {
+O compound;
+V "goto 106";
+T "Ljava/lang/Object";
+P 4;
+S "samples/RangeSCD2.java":26,0-26,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":61;
+Z 0;
+}
+PRED 31 {
+O IF;
+V "if (#(0) > #(40)) goto 98";
+T "Z";
+P 4;
+S "samples/RangeSCD2.java":28,0-28,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":68;
+Z 0;
+CD 32;
+CD 50;
+CD 52;
+HE 32;
+HE 50;
+HE 52;
+}
+CALL 32 {
+O call;
+V "v20 = MRaise(#(), #(0.0 f), #(0))";
+T "F";
+P 4;
+S "samples/RangeSCD2.java":29,0-29,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":75;
+Z 0;
+PS 37;
+CL 330: "virtual";
+PS 897;
+PS 898;
+CF 4836;
+CE 4836;
+}
+CALL 38 {
+O call;
+V "v22 = v6.nextInt()";
+T "I";
+P 4;
+S "samples/RangeSCD2.java":30,0-30,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":81;
+Z 0;
+U "java.util.Scanner.nextInt()I";
+PS 41;
+CE 4769;
+CF 4769;
+HE 4769;
+}
+EXPR 42 {
+O reference;
+V "v23 = samples.RangeSCD2.BONUS";
+T "[F";
+P 4;
+S "samples/RangeSCD2.java":31,0-31,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":87;
+Z 0;
+CF 45;
+}
+EXPR 44 {
+O reference;
+V "v24 = v23[v22]";
+T "F";
+P 4;
+S "samples/RangeSCD2.java":31,0-31,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":92;
+Z 0;
+DD 48;
+}
+EXPR 48 {
+O assign;
+V "v25 = v20 + v24";
+T "Ljava/lang/Object";
+P 4;
+S "samples/RangeSCD2.java":31,0-31,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":93;
+Z 0;
+CF 49;
+}
+NORM 49 {
+O compound;
+V "goto 106";
+T "Ljava/lang/Object";
+P 4;
+S "samples/RangeSCD2.java":31,0-31,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":95;
+Z 0;
+}
+EXPR 50 {
+O reference;
+V "v16 = java.lang.System.out";
+T "Ljava/io/PrintStream";
+P 4;
+S "samples/RangeSCD2.java":34,0-34,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":98;
+Z 0;
+CF 53;
+}
+CALL 52 {
+O call;
+V "v16.println(#(...))";
+T "V";
+P 4;
+S "samples/RangeSCD2.java":34,0-34,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":103;
+Z 0;
+PS 55;
+CL 362: "virtual";
+CF 4837;
+CE 4837;
+}
+EXPR 56 {
+O reference;
+V "v31 = java.lang.System.out";
+T "Ljava/io/PrintStream";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":106;
+Z 0;
+CF 58;
+}
+NORM 58 {
+O declaration;
+V "v32 = new java.lang.StringBuilder";
+T "Ljava/lang/StringBuilder";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":109;
+Z 0;
+}
+CALL 59 {
+O call;
+V "v32.<init>()";
+T "V";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":113;
+Z 0;
+PS 61;
+CL 388: "virtual";
+CF 4838;
+CE 4838;
+}
+CALL 62 {
+O call;
+V "v35 = v32.append(#())";
+T "Ljava/lang/StringBuilder";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":117;
+Z 0;
+A 58;
+PS 66;
+CL 402: "virtual";
+CF 4839;
+CE 4839;
+}
+CALL 67 {
+O call;
+V "v38 = v35.append(#( ))";
+T "Ljava/lang/StringBuilder";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":122;
+Z 0;
+A 58;
+PS 71;
+CL 402: "virtual";
+CF 4840;
+CE 4840;
+}
+CALL 72 {
+O call;
+V "v40 = v38.append(v29)";
+T "Ljava/lang/StringBuilder";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":126;
+Z 0;
+A 58;
+PS 76;
+CL 434: "virtual";
+CF 4841;
+CE 4841;
+}
+CALL 77 {
+O call;
+V "v42 = v40.toString()";
+T "Ljava/lang/String";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":129;
+Z 0;
+A 58;
+PS 80;
+CL 453: "virtual";
+CF 4842;
+CE 4842;
+}
+CALL 81 {
+O call;
+V "v31.println(v42)";
+T "V";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":132;
+Z 0;
+PS 84;
+CL 362: "virtual";
+CF 4843;
+CE 4843;
+}
+EXPR 85 {
+O reference;
+V "v44 = java.lang.System.out";
+T "Ljava/io/PrintStream";
+P 4;
+S "samples/RangeSCD2.java":37,0-37,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":135;
+Z 0;
+CF 88;
+}
+CALL 87 {
+O call;
+V "v44.println(#(Send(socket, buf)))";
+T "V";
+P 4;
+S "samples/RangeSCD2.java":37,0-37,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":140;
+Z 0;
+PS 90;
+CL 362: "virtual";
+CF 4844;
+CE 4844;
+}
+NORM 91 {
+O compound;
+V "return";
+T "V";
+P 4;
+S "samples/RangeSCD2.java":38,0-38,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":143;
+Z 0;
+}
+NORM 4767 {
+O compound;
+V "many2many";
+P 4;
+S "samples/RangeSCD2.java":0,0-0,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-1;
+Z 0;
+CF 11;
+}
+NORM 4768 {
+O compound;
+V "many2many";
+P 4;
+S "samples/RangeSCD2.java":0,0-0,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-1;
+Z 0;
+CF 21;
+}
+NORM 4769 {
+O compound;
+V "many2many";
+P 4;
+S "samples/RangeSCD2.java":0,0-0,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-1;
+Z 0;
+}
+NORM 4834 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":23,0-23,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+}
+NORM 4835 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":26,0-26,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+}
+NORM 4836 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":29,0-29,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 38;
+CD 42;
+HE 38;
+HE 42;
+}
+NORM 4837 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":34,0-34,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 56;
+CD 58;
+CD 59;
+CD 62;
+}
+NORM 4838 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+}
+NORM 4839 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 67;
+HE 67;
+}
+NORM 4840 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 72;
+HE 72;
+}
+NORM 4841 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 77;
+HE 77;
+}
+NORM 4842 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 81;
+HE 81;
+}
+NORM 4843 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":36,0-36,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 85;
+CD 87;
+HE 85;
+HE 87;
+}
+NORM 4844 {
+O compound;
+V "CALL_RET";
+P 4;
+S "samples/RangeSCD2.java":37,0-37,0;
+B "samples.RangeSCD2.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 91;
+HE 91;
+}
+}

@@ -1,0 +1,219 @@
+SDG "smalls.EqualSCD.main(java.lang.String[])" {
+ENTR 1 {
+O entry;
+V "smalls.EqualSCD.main(java.lang.String[])";
+P 4;
+S "smalls/EqualSCD.java":0,0-0,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":-1;
+Z 0;
+C "Application";
+CD 5;
+PS 32;
+PS 248;
+PS 249;
+HE 2;
+HE 5;
+}
+CALL 5 {
+O call;
+V "v6 = random()";
+T "D";
+P 4;
+S "smalls/EqualSCD.java":8,0-8,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":5;
+Z 0;
+PS 7;
+CL 76: "virtual";
+PS 254;
+PS 255;
+CF 1967;
+CE 1967;
+}
+EXPR 8 {
+O assign;
+V "v7 = CONVERT D to I v6";
+T "I";
+P 4;
+S "smalls/EqualSCD.java":8,0-8,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":8;
+Z 0;
+DD 9;
+DD 17;
+CF 9;
+}
+PRED 9 {
+O IF;
+V "if (v7 != #(0)) goto 27";
+T "Z";
+P 4;
+S "smalls/EqualSCD.java":10,0-10,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":12;
+Z 0;
+CD 10;
+CD 12;
+CD 17;
+CF 17;
+HE 10;
+HE 12;
+HE 17;
+}
+EXPR 10 {
+O reference;
+V "v14 = java.lang.System.out";
+T "Ljava/io/PrintStream";
+P 4;
+S "smalls/EqualSCD.java":11,0-11,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":15;
+Z 0;
+CF 13;
+}
+CALL 12 {
+O call;
+V "v14.println(#(1))";
+T "V";
+P 4;
+S "smalls/EqualSCD.java":11,0-11,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":19;
+Z 0;
+PS 15;
+CL 93: "virtual";
+CF 1968;
+CE 1968;
+}
+NORM 16 {
+O compound;
+V "goto 47";
+T "Ljava/lang/Object";
+P 4;
+S "smalls/EqualSCD.java":11,0-11,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":22;
+Z 0;
+CF 31;
+}
+PRED 17 {
+O IF;
+V "if (v7 != #(10)) goto 40";
+T "Z";
+P 4;
+S "smalls/EqualSCD.java":13,0-13,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":27;
+Z 0;
+CD 18;
+CD 20;
+CD 25;
+CD 27;
+HE 18;
+HE 20;
+HE 25;
+HE 27;
+}
+EXPR 18 {
+O reference;
+V "v11 = java.lang.System.out";
+T "Ljava/io/PrintStream";
+P 4;
+S "smalls/EqualSCD.java":14,0-14,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":30;
+Z 0;
+CF 21;
+}
+CALL 20 {
+O call;
+V "v11.println(#(2))";
+T "V";
+P 4;
+S "smalls/EqualSCD.java":14,0-14,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":34;
+Z 0;
+PS 23;
+CL 93: "virtual";
+CF 1969;
+CE 1969;
+}
+NORM 24 {
+O compound;
+V "goto 47";
+T "Ljava/lang/Object";
+P 4;
+S "smalls/EqualSCD.java":14,0-14,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":37;
+Z 0;
+CF 31;
+}
+EXPR 25 {
+O reference;
+V "v8 = java.lang.System.out";
+T "Ljava/io/PrintStream";
+P 4;
+S "smalls/EqualSCD.java":17,0-17,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":40;
+Z 0;
+CF 28;
+}
+CALL 27 {
+O call;
+V "v8.println(#(3))";
+T "V";
+P 4;
+S "smalls/EqualSCD.java":17,0-17,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":44;
+Z 0;
+PS 30;
+CL 93: "virtual";
+CF 1970;
+CE 1970;
+}
+NORM 31 {
+O compound;
+V "return";
+T "V";
+P 4;
+S "smalls/EqualSCD.java":20,0-20,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":47;
+Z 0;
+}
+NORM 1967 {
+O compound;
+V "CALL_RET";
+P 4;
+S "smalls/EqualSCD.java":8,0-8,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 8;
+CD 9;
+HE 8;
+HE 9;
+}
+NORM 1968 {
+O compound;
+V "CALL_RET";
+P 4;
+S "smalls/EqualSCD.java":11,0-11,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 16;
+CD 31;
+HE 16;
+HE 31;
+}
+NORM 1969 {
+O compound;
+V "CALL_RET";
+P 4;
+S "smalls/EqualSCD.java":14,0-14,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 24;
+CD 31;
+HE 24;
+}
+NORM 1970 {
+O compound;
+V "CALL_RET";
+P 4;
+S "smalls/EqualSCD.java":17,0-17,0;
+B "smalls.EqualSCD.main([Ljava/lang/String;)V":-9;
+Z 0;
+CD 31;
+}
+}

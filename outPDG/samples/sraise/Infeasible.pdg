@@ -1,0 +1,292 @@
+SDG "samples.Infeasible.main(java.lang.String[])" {
+ENTR 300 {
+O entry;
+V "samples.Infeasible.SRaise(java.lang.String,float)";
+P 9;
+S "samples/Infeasible.java":0,0-0,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":-1;
+Z 0;
+C "Application";
+CD 305;
+CD 306;
+CD 307;
+CD 311;
+CD 315;
+CD 319;
+CD 320;
+CD 321;
+PS 304;
+PS 892;
+HE 301;
+HE 305;
+HE 306;
+HE 307;
+HE 311;
+HE 315;
+HE 319;
+HE 320;
+HE 321;
+}
+NORM 305 {
+O declaration;
+V "v4 = new java.util.Scanner";
+T "Ljava/util/Scanner";
+P 9;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":0;
+Z 0;
+CF 306;
+}
+NORM 306 {
+O declaration;
+V "v5 = new java.io.File";
+T "Ljava/io/File";
+P 9;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":4;
+Z 0;
+}
+CALL 307 {
+O call;
+V "v5.<init>(p1 $null )";
+T "V";
+P 9;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":9;
+Z 0;
+PS 310;
+CL 596: "virtual";
+PS 907;
+CF 4851;
+CE 4851;
+}
+CALL 311 {
+O call;
+V "v4.<init>(v5)";
+T "V";
+P 9;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":12;
+Z 0;
+U "java.util.Scanner.<init>(Ljava/io/File;)V";
+PS 314;
+CE 4805;
+CF 4805;
+HE 4805;
+}
+CALL 315 {
+O call;
+V "v9 = v4.nextInt()";
+T "I";
+P 9;
+S "samples/Infeasible.java":42,0-42,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":17;
+Z 0;
+U "java.util.Scanner.nextInt()I";
+PS 318;
+CE 4806;
+CF 4806;
+HE 4806;
+}
+EXPR 319 {
+O assign;
+V "v10 = CONVERT I to F v9";
+T "F";
+P 9;
+S "samples/Infeasible.java":42,0-42,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":20;
+Z 0;
+DD 320;
+CF 320;
+}
+EXPR 320 {
+O assign;
+V "v11 = p2 $null  * v10";
+T "Ljava/lang/Object";
+P 9;
+S "samples/Infeasible.java":43,0-43,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":24;
+Z 0;
+CF 321;
+DD 321;
+}
+NORM 321 {
+O compound;
+V "return v11";
+T "F";
+P 9;
+S "samples/Infeasible.java":43,0-43,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":25;
+Z 0;
+}
+ENTR 643 {
+O entry;
+V "samples.Infeasible.SRaise(java.lang.String,float)";
+P 20;
+S "samples/Infeasible.java":0,0-0,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":-1;
+Z 0;
+C "Application";
+CD 648;
+CD 649;
+CD 650;
+CD 654;
+CD 658;
+CD 662;
+CD 663;
+CD 664;
+PS 647;
+PS 894;
+HE 644;
+HE 648;
+HE 649;
+HE 650;
+HE 654;
+HE 658;
+HE 662;
+HE 663;
+HE 664;
+}
+NORM 648 {
+O declaration;
+V "v4 = new java.util.Scanner";
+T "Ljava/util/Scanner";
+P 20;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":0;
+Z 0;
+CF 649;
+}
+NORM 649 {
+O declaration;
+V "v5 = new java.io.File";
+T "Ljava/io/File";
+P 20;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":4;
+Z 0;
+}
+CALL 650 {
+O call;
+V "v5.<init>(p1 $null )";
+T "V";
+P 20;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":9;
+Z 0;
+PS 653;
+CL 809: "virtual";
+PS 909;
+CF 4862;
+CE 4862;
+}
+CALL 654 {
+O call;
+V "v4.<init>(v5)";
+T "V";
+P 20;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":12;
+Z 0;
+U "java.util.Scanner.<init>(Ljava/io/File;)V";
+PS 657;
+CE 4816;
+CF 4816;
+HE 4816;
+}
+CALL 658 {
+O call;
+V "v9 = v4.nextInt()";
+T "I";
+P 20;
+S "samples/Infeasible.java":42,0-42,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":17;
+Z 0;
+U "java.util.Scanner.nextInt()I";
+PS 661;
+CE 4817;
+CF 4817;
+HE 4817;
+}
+EXPR 662 {
+O assign;
+V "v10 = CONVERT I to F v9";
+T "F";
+P 20;
+S "samples/Infeasible.java":42,0-42,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":20;
+Z 0;
+DD 663;
+CF 663;
+}
+EXPR 663 {
+O assign;
+V "v11 = p2 $null  * v10";
+T "Ljava/lang/Object";
+P 20;
+S "samples/Infeasible.java":43,0-43,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":24;
+Z 0;
+CF 664;
+DD 664;
+}
+NORM 664 {
+O compound;
+V "return v11";
+T "F";
+P 20;
+S "samples/Infeasible.java":43,0-43,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":25;
+Z 0;
+}
+NORM 4805 {
+O compound;
+V "many2many";
+P 9;
+S "samples/Infeasible.java":0,0-0,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":-1;
+Z 0;
+CF 314;
+}
+NORM 4806 {
+O compound;
+V "many2many";
+P 9;
+S "samples/Infeasible.java":0,0-0,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":-1;
+Z 0;
+}
+NORM 4816 {
+O compound;
+V "many2many";
+P 20;
+S "samples/Infeasible.java":0,0-0,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":-1;
+Z 0;
+CF 657;
+}
+NORM 4817 {
+O compound;
+V "many2many";
+P 20;
+S "samples/Infeasible.java":0,0-0,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":-1;
+Z 0;
+}
+NORM 4851 {
+O compound;
+V "CALL_RET";
+P 9;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":-9;
+Z 0;
+}
+NORM 4862 {
+O compound;
+V "CALL_RET";
+P 20;
+S "samples/Infeasible.java":41,0-41,0;
+B "samples.Infeasible.SRaise(Ljava/lang/String;F)F":-9;
+Z 0;
+}
+}
