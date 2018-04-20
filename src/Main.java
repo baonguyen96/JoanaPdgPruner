@@ -5,20 +5,26 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            String packageName = "smalls";
-            String[] methods = {};
-            File folder = new File("pdg/" + packageName);
-            File[] files = folder.listFiles();
+            String[] packages = {"samples"};
+            String[] classes = {"EqualSCD", "Infeasible"};
+            String[] methods = {"main", "SRaise"};
+            File sourceFolder = new File("pdg/samples");
+            File[] sourcePdgFiles = sourceFolder.listFiles();
 
-            for(File file : files) {
+            if(sourcePdgFiles == null) {
+                return;
+            }
+
+            for(File file : sourcePdgFiles) {
                 if(file.isDirectory()) {
                     continue;
                 }
                 SDG sdg = new SDG();
-                sdg.setRelevantPackage(packageName);
+                sdg.setRelevantPackage(packages);
+                sdg.setRelevantClasses(classes);
                 sdg.setRelevantMethods(methods);
-                sdg.construct("pdg/" + packageName + "/" + file.getName());
-                sdg.save(createOutputFolderPath(packageName, methods), file.getName());
+                sdg.construct(file);
+                sdg.save(createOutputFolderPath(packages, classes, methods), file.getName());
             }
 
             System.out.println();
@@ -29,28 +35,39 @@ public class Main {
     }
 
 
-    private static String createOutputFolderPath(String packageName, String[] methodNames) {
+    private static String createOutputFolderPath(String[] packageNames, String[] classNames, String[] methodNames) {
         StringBuilder path = new StringBuilder();
 
-        path.append("outPDG/");
-        path.append(packageName);
+        path.append("./outPDG/");
+        path.append(createPath("package", packageNames));
+        path.append(createPath("class", classNames));
+        path.append(createPath("method", methodNames));
         path.append("/");
 
-        if(methodNames == null || methodNames.length == 0) {
-            path.append("allMethods");
+        return path.toString();
+    }
+
+
+    private static String createPath(String type, String[] collections) {
+        StringBuilder path = new StringBuilder();
+        path.append(type);
+        path.append("_");
+
+        if(collections == null || collections.length == 0) {
+            path.append("all");
         }
         else {
-            for (int i = 0; i < methodNames.length; i++) {
-                path.append(methodNames[i]);
+            for (int i = 0; i < collections.length; i++) {
+                path.append(collections[i]);
 
-                if (i < methodNames.length - 1) {
+                if (i < collections.length - 1) {
                     path.append("-");
                 }
             }
         }
         path.append("/");
-
         return path.toString();
     }
+
 
 }

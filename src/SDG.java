@@ -12,53 +12,68 @@ public class SDG {
     private static class Node {
         private ArrayList<String> content;
         private String id;
-        private static String relevantPackage;
+        private static String[] relevantPackages;
+        private static String[] relevantClasses;
         private static String[] relevantMethods;
+
 
         Node() {
             content = new ArrayList<>();
         }
 
+
         void append(String line) {
             content.add(line);
-            if(line.contains("{")) {
+            if (line.contains("{")) {
                 id = line.split("\\s+")[1];
             }
         }
 
+
         boolean isRelevant() {
-            return isRelevantPackages() && isRelevantMethods();
+            return isRelevantPackages() && isRelevantClasses() && isRelevantMethods();
         }
 
 
         private boolean isRelevantPackages() {
             int relevantBothSandBvals = 0;
 
-            for(String s : content) {
-                if(s.contains(String.format("S \"%s/", relevantPackage))) {
-                    relevantBothSandBvals++;
-                }
-                else if(s.contains(String.format("B \"%s.", relevantPackage))) {
-                    relevantBothSandBvals++;
-                }
+            for (String packageName : relevantPackages) {
+                for (String s : content) {
+                    if (s.contains(String.format("S \"%s/", packageName))) {
+                        relevantBothSandBvals++;
+                    }
+                    else if (s.contains(String.format("B \"%s.", packageName))) {
+                        relevantBothSandBvals++;
+                    }
 
-                if(relevantBothSandBvals == 2) {
-                    break;
+                    if (relevantBothSandBvals == 2) {
+                        return true;
+                    }
                 }
             }
-            return relevantBothSandBvals == 2;
+            return false;
+        }
+
+
+        private boolean isRelevantClasses() {
+            return isRelevantContext(relevantClasses);
         }
 
 
         private boolean isRelevantMethods() {
-            if(relevantMethods == null || relevantMethods.length == 0) {
+            return isRelevantContext(relevantMethods);
+        }
+
+
+        private boolean isRelevantContext(String[] context) {
+            if (context == null || context.length == 0) {
                 return true;
             }
             else {
-                for(String s : content) {
-                    for(String method : relevantMethods) {
-                        if(s.startsWith(String.format("B \"%s.", relevantPackage)) &&
-                                s.contains(method)) {
+                for (String c : context) {
+                    for (String s : content) {
+                        if (s.contains(c)) {
                             return true;
                         }
                     }
@@ -69,9 +84,9 @@ public class SDG {
 
 
         void prune(String idToExclude) {
-            for(int i = 0; i < content.size(); i++) {
+            for (int i = 0; i < content.size(); i++) {
                 String s = String.format("^[A-Z]{2} %s;$", idToExclude);
-                if(content.get(i).matches(s)) {
+                if (content.get(i).matches(s)) {
                     content.remove(i);
                 }
             }
@@ -81,7 +96,7 @@ public class SDG {
         public String toString() {
             StringBuilder stringBuilder = new StringBuilder();
 
-            for(String s : content) {
+            for (String s : content) {
                 stringBuilder.append(s).append("\r\n");
             }
 
@@ -90,9 +105,11 @@ public class SDG {
 
     }
 
+
     private LinkedList<Node> nodes;
     private String title;
     private LinkedList<String> removedIDs;
+
 
     public SDG() {
         nodes = new LinkedList<>();
@@ -101,47 +118,51 @@ public class SDG {
     }
 
 
-    public void setRelevantPackage(String packageName) {
-        Node.relevantPackage = packageName;
+    public void setRelevantPackage(String[] packages) {
+        Node.relevantPackages = packages;
     }
 
 
-    public void setRelevantMethods(String... methodsToAnalyze) {
-        Node.relevantMethods = methodsToAnalyze;
+    public void setRelevantClasses(String[] classes) {
+        Node.relevantClasses = classes;
     }
 
 
-    public void construct(String fileName) throws FileNotFoundException {
-        File file = new File(fileName);
-        Scanner scanner = new Scanner(file);
+    public void setRelevantMethods(String[] methods) {
+        Node.relevantMethods = methods;
+    }
+
+
+    public void construct(File pdgFile) throws FileNotFoundException {
+        Scanner scanner = new Scanner(pdgFile);
         String line = "";
         Node node = new Node();
         int totalNodes = 0;
 
-        System.out.println(file.getName());
+        System.out.println(pdgFile.getName());
 
-        if(scanner.hasNextLine()) {
+        if (scanner.hasNextLine()) {
             title = scanner.nextLine();
         }
         else {
             return;
         }
 
-        while(scanner.hasNextLine()) {
+        while (scanner.hasNextLine()) {
             line = scanner.nextLine();
 
-            if(line.contains("{")) {
+            if (line.contains("{")) {
                 totalNodes++;
                 node = new Node();
                 node.append(line);
             }
-            else if(line.contains("}")) {
+            else if (line.contains("}")) {
                 // prevent last line
-                if(node != null) {
+                if (node != null) {
                     node.append(line);
 
                     // exclude nodes that are related to internal Java
-                    if(node.isRelevant()) {
+                    if (node.isRelevant()) {
                         nodes.addLast(node);
                     }
                     else {
@@ -169,8 +190,8 @@ public class SDG {
     private void prune() {
         LinkedList<Node> prunedNodes = new LinkedList<>();
 
-        for(Node node : nodes) {
-            for(String id : removedIDs) {
+        for (Node node : nodes) {
+            for (String id : removedIDs) {
                 node.prune(id);
             }
             prunedNodes.addLast(node);
@@ -183,7 +204,7 @@ public class SDG {
     private LinkedList<Node> deepCopyNodes(LinkedList<Node> list) {
         LinkedList<Node> copy = new LinkedList<>();
 
-        for(Node node : list) {
+        for (Node node : list) {
             copy.addLast(node);
         }
 
@@ -193,16 +214,16 @@ public class SDG {
 
     public void save(String folderPath, String fileName) throws Exception {
         File folder = new File(folderPath);
-        folder.mkdir();
-        FileOutputStream fileOutputStream = new FileOutputStream(folderPath + fileName);
-        PrintWriter printWriter = new PrintWriter(fileOutputStream, true);
+        folder.mkdirs();
+        FileOutputStream fileOutputStream = new FileOutputStream(folderPath + fileName, true);
+        PrintWriter printWriter = new PrintWriter(fileOutputStream);
 
         printWriter.println(title);
-        while(!nodes.isEmpty()) {
+        while (!nodes.isEmpty()) {
             printWriter.print(nodes.removeFirst().toString());
         }
         printWriter.println("}");
+        printWriter.close();
     }
-
 
 }
