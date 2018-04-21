@@ -9,10 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            String[] packages = {"samples"};
-            String[] classes = {"EqualSCD", "Infeasible"};
-            String[] methods = {"main", "SRaise"};
-            File sourceFolder = new File("pdg/samples");
+            String[] packages = {"smalls"};
+            String[] classes = {"EqualSCD"};
+            String[] methods = {};
+            File sourceFolder = new File("pdg/smalls");
             File[] sourcePdgFiles = sourceFolder.listFiles();
 
             if(sourcePdgFiles == null) {

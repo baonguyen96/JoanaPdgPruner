@@ -17,7 +17,7 @@ class SdgNode {
     }
 
 
-    public String getId() {
+    String getId() {
         return id;
     }
 
@@ -54,10 +54,10 @@ class SdgNode {
 
         for (String packageName : relevantPackages) {
             for (String s : content) {
-                if (s.contains(String.format("S \"%s/", packageName))) {
+                if (s.startsWith(String.format("S \"%s/", packageName))) {
                     relevantBothSandBvals++;
                 }
-                else if (s.contains(String.format("B \"%s.", packageName))) {
+                else if (s.startsWith(String.format("B \"%s.", packageName))) {
                     relevantBothSandBvals++;
                 }
 
@@ -71,24 +71,31 @@ class SdgNode {
 
 
     private boolean isRelevantClasses() {
-        return isRelevantContext(relevantClasses);
+        return isRelevantContext(relevantClasses, true);
     }
 
 
     private boolean isRelevantMethods() {
-        return isRelevantContext(relevantMethods);
+        return isRelevantContext(relevantMethods, false);
     }
 
 
-    private boolean isRelevantContext(String[] context) {
+    private boolean isRelevantContext(String[] context, boolean isCheckingClasses) {
         if (context == null || context.length == 0) {
             return true;
         }
         else {
             for (String c : context) {
                 for (String s : content) {
-                    if (s.contains(c)) {
-                        return true;
+                    if(isCheckingClasses) {
+                        if (s.contains("." + c + ".")) {
+                            return true;
+                        }
+                    }
+                    else {
+                        if (s.contains("." + c + "(")) {
+                            return true;
+                        }
                     }
                 }
             }

@@ -83,7 +83,7 @@ public class SDG {
         }
 
         prune();
-        System.out.println("Total =  " + totalNodes);
+        System.out.println("Total  = " + totalNodes);
         System.out.println("Remain = " + nodes.size());
         System.out.println("Remove = " + removedIDs.size());
         System.out.println();
@@ -119,7 +119,7 @@ public class SDG {
     public void save(String folderPath, String fileName) throws Exception {
         File folder = new File(folderPath);
         folder.mkdirs();
-        FileOutputStream fileOutputStream = new FileOutputStream(folderPath + fileName, true);
+        FileOutputStream fileOutputStream = new FileOutputStream(folderPath + fileName, false);
         PrintWriter printWriter = new PrintWriter(fileOutputStream);
 
         printWriter.println(title);

@@ -523,19 +523,6 @@ S "samples/EqualSCD.java":43,0-43,0;
 B "samples.EqualSCD.SRaise(Ljava/lang/String;F)F":25;
 Z 0;
 }
-CALL 336 {
-O call;
-V "v7 = SRaise(#(mngr.std), p2 $null )";
-T "F";
-P 10;
-S "samples/EqualSCD.java":47,0-47,0;
-B "samples.EqualSCD.MRaise(Ljava/lang/String;FI)F":3;
-Z 0;
-PS 340;
-CL 643: "virtual";
-PS 908;
-CE 4852;
-}
 ENTR 643 {
 O entry;
 V "samples.EqualSCD.SRaise(java.lang.String,float)";
