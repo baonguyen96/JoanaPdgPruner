@@ -1,3 +1,7 @@
+package driver;
+
+import sdg.SDG;
+
 import java.io.File;
 
 
@@ -36,15 +40,12 @@ public class Main {
 
 
     private static String createOutputFolderPath(String[] packageNames, String[] classNames, String[] methodNames) {
-        StringBuilder path = new StringBuilder();
 
-        path.append("./outPDG/");
-        path.append(createPath("package", packageNames));
-        path.append(createPath("class", classNames));
-        path.append(createPath("method", methodNames));
-        path.append("/");
-
-        return path.toString();
+        return "./outPDG/" +
+                createPath("package", packageNames) +
+                createPath("class", classNames) +
+                createPath("method", methodNames) +
+                "/";
     }
 
 

@@ -1,4 +1,4 @@
-SDG "smalls.RangeSCD2.main(java.lang.String[])" {
+sdg.SDG "smalls.RangeSCD2.main(java.lang.String[])" {
 ENTR 1 {
 O entry;
 V "smalls.RangeSCD2.main(java.lang.String[])";

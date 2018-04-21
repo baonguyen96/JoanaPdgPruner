@@ -1,4 +1,4 @@
-SDG "samples.Infeasible.main(java.lang.String[])" {
+sdg.SDG "samples.Infeasible.main(java.lang.String[])" {
 ENTR 1 {
 O entry;
 V "samples.Infeasible.main(java.lang.String[])";

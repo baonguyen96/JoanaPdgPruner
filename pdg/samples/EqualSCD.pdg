@@ -1,4 +1,4 @@
-SDG "samples.EqualSCD.main(java.lang.String[])" {
+sdg.SDG "samples.EqualSCD.main(java.lang.String[])" {
 ENTR 1 {
 O entry;
 V "samples.EqualSCD.main(java.lang.String[])";

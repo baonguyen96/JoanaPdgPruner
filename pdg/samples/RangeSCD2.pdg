@@ -1,4 +1,4 @@
-SDG "samples.RangeSCD2.main(java.lang.String[])" {
+sdg.SDG "samples.RangeSCD2.main(java.lang.String[])" {
 ENTR 1 {
 O entry;
 V "samples.RangeSCD2.main(java.lang.String[])";
