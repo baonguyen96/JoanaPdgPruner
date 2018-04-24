@@ -10,14 +10,14 @@ import java.util.Scanner;
 
 public class SDG {
 
+    private String header;
     private LinkedList<SdgNode> nodes;
-    private String title;
     private LinkedList<String> removedIDs;
 
 
     public SDG() {
         nodes = new LinkedList<>();
-        title = "";
+        header = "";
         removedIDs = new LinkedList<>();
     }
 
@@ -46,7 +46,7 @@ public class SDG {
         System.out.println(pdgFile.getName());
 
         if (scanner.hasNextLine()) {
-            title = scanner.nextLine();
+            header = scanner.nextLine();
         }
         else {
             return;
@@ -122,12 +122,34 @@ public class SDG {
         FileOutputStream fileOutputStream = new FileOutputStream(folderPath + fileName, false);
         PrintWriter printWriter = new PrintWriter(fileOutputStream);
 
-        printWriter.println(title);
-        while (!nodes.isEmpty()) {
-            printWriter.print(nodes.removeFirst().toString());
+        printWriter.println(header);
+
+        for (SdgNode node : nodes) {
+            printWriter.print(node.toString());
         }
+
         printWriter.println("}");
         printWriter.close();
     }
+
+    SdgNode getNodeAt(int index) {
+        if(index >= nodes.size()) {
+            return null;
+        }
+        else {
+            return nodes.get(index);
+        }
+    }
+
+
+    String getHeader() {
+        return header.substring(header.indexOf("\"") + 1, header.indexOf("("));
+    }
+
+
+    public int size() {
+        return nodes.size();
+    }
+
 
 }

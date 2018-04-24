@@ -21,6 +21,7 @@ class SdgNode {
         return id;
     }
 
+
     static void setRelevantPackages(String[] relevantPackages) {
         SdgNode.relevantPackages = relevantPackages;
     }
@@ -87,7 +88,7 @@ class SdgNode {
         else {
             for (String c : context) {
                 for (String s : content) {
-                    if(isCheckingClasses) {
+                    if (isCheckingClasses) {
                         if (s.contains("." + c + ".")) {
                             return true;
                         }
@@ -114,6 +115,7 @@ class SdgNode {
     }
 
 
+    @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -122,6 +124,41 @@ class SdgNode {
         }
 
         return stringBuilder.toString();
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        SdgNode anotherNode = (SdgNode) obj;
+
+        if (this.content.size() != anotherNode.content.size()) {
+            return false;
+        }
+
+        for (int i = 0; i < this.content.size(); i++) {
+            String thisLine = this.content.get(i);
+            String anotherLine = anotherNode.content.get(i);
+
+            if (!thisLine.equals(anotherLine) &&
+                    !areLinesCanBeIgnored(thisLine, anotherLine)) {
+                return false;
+
+            }
+
+        }
+
+        return true;
+    }
+
+
+    private boolean areLinesCanBeIgnored(String firstLine, String secondLine) {
+        final String V_PATTERN = "^V \"\\S+.\\S+.\\S+\\(\\S+$";
+        final String S_PATTERN = "^S \"\\S+/\\S+.java\":\\S+$";
+        final String B_PATTERN = "^B \"\\S+.\\S+.\\S+\\(\\[\\S+$";
+
+        return (firstLine.matches(V_PATTERN) && secondLine.matches(V_PATTERN)) ||
+                (firstLine.matches(S_PATTERN) && secondLine.matches(S_PATTERN)) ||
+                (firstLine.matches(B_PATTERN) && secondLine.matches(B_PATTERN));
     }
 
 }

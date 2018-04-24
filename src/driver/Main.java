@@ -1,41 +1,57 @@
 package driver;
 
 import sdg.SDG;
+import sdg.SdgComparor;
 
 import java.io.File;
+import java.util.LinkedList;
 
 
 public class Main {
 
+    private static LinkedList<SDG> sdgs = new LinkedList<>();
+
     public static void main(String[] args) {
         try {
-            String[] packages = {"smalls"};
-            String[] classes = {"EqualSCD"};
-            String[] methods = {};
-            File sourceFolder = new File("pdg/smalls");
-            File[] sourcePdgFiles = sourceFolder.listFiles();
-
-            if(sourcePdgFiles == null) {
-                return;
-            }
-
-            for(File file : sourcePdgFiles) {
-                if(file.isDirectory()) {
-                    continue;
-                }
-                SDG sdg = new SDG();
-                sdg.setRelevantPackage(packages);
-                sdg.setRelevantClasses(classes);
-                sdg.setRelevantMethods(methods);
-                sdg.construct(file);
-                sdg.save(createOutputFolderPath(packages, classes, methods), file.getName());
-            }
-
-            System.out.println();
+            prunePDGs();
+            comparePDGs();
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void prunePDGs() throws Exception {
+        String[] packages = {"smalls"};
+        String[] classes = {"Infeasible"};
+        String[] methods = {};
+        File sourceFolder = new File("pdg/smalls");
+        File[] sourcePdgFiles = sourceFolder.listFiles();
+
+        if(sourcePdgFiles == null) {
+            return;
+        }
+
+        for(File file : sourcePdgFiles) {
+            if(file.isDirectory()) {
+                continue;
+            }
+            SDG sdg = new SDG();
+            sdg.setRelevantPackage(packages);
+            sdg.setRelevantClasses(classes);
+            sdg.setRelevantMethods(methods);
+            sdg.construct(file);
+            sdgs.addLast(sdg);
+            sdg.save(createOutputFolderPath(packages, classes, methods), file.getName());
+        }
+
+    }
+
+
+    private static void comparePDGs() throws Exception {
+        SdgComparor comparor = new SdgComparor();
+        comparor.compare(sdgs.getFirst(), sdgs.get(1));
+        comparor.save("./compareResults/", "2.txt");
     }
 
 

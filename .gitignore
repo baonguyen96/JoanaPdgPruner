@@ -4,3 +4,5 @@
 .settings/
 backup/
 target/
+Would skip repository bin/
+bin/
