@@ -132,6 +132,7 @@ public class SDG {
         printWriter.close();
     }
 
+
     SdgNode getNodeAt(int index) {
         if(index >= nodes.size()) {
             return null;
@@ -147,7 +148,7 @@ public class SDG {
     }
 
 
-    public int size() {
+    int size() {
         return nodes.size();
     }
 

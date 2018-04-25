@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 public class SdgComparor {
 
-    LinkedList<String[]> differentNodes;
+    private LinkedList<String[]> differentNodes;
 
     public SdgComparor() {
         differentNodes = new LinkedList<>();
@@ -37,7 +37,7 @@ public class SdgComparor {
         }
 
         for(int i = commonSize; i < secondSdgSize; i++) {
-            differentNodes.addLast(new String[]{second.getNodeAt(i).getId(), ""});
+            differentNodes.addLast(new String[]{"", second.getNodeAt(i).getId()});
         }
 
         System.out.printf("Total of %d nodes difference\n", differentNodes.size() - 1);
@@ -50,6 +50,9 @@ public class SdgComparor {
         folder.mkdirs();
         FileOutputStream fileOutputStream = new FileOutputStream(folderPath + fileName, false);
         PrintWriter printWriter = new PrintWriter(fileOutputStream);
+
+        String[] headers = differentNodes.removeFirst();
+        printWriter.printf("%-20s %s\n", "<PDG 1>", "<PDG 2>");
 
         while (!differentNodes.isEmpty()) {
             String[] pair = differentNodes.removeFirst();
@@ -67,8 +70,13 @@ public class SdgComparor {
             printWriter.printf("%-20s %s\n", firstNodeId, secondNodeId);
 
         }
-        printWriter.close();
-    }
 
+        printWriter.println();
+        printWriter.printf("PDG 1 = %s\n", headers[0]);
+        printWriter.printf("PDG 2 = %s\n", headers[1]);
+
+        printWriter.close();
+
+    }
 
 }

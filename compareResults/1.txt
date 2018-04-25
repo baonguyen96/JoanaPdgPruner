@@ -1,3 +1,0 @@
-smalls.EqualSCD.main smalls.RangeSCD2.main
-Node 9               Node 9
-Node 17              Node 17

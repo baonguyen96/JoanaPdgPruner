@@ -1,0 +1,6 @@
+[PDG 1]              [PDG 2]
+Node 9               Node 9
+Node 17              Node 17
+
+PDG 1 = smalls.EqualSCD.main
+PDG 2 = smalls.Infeasible.main

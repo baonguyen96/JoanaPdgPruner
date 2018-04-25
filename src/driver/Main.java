@@ -23,8 +23,8 @@ public class Main {
 
     private static void prunePDGs() throws Exception {
         String[] packages = {"smalls"};
-        String[] classes = {"Infeasible"};
-        String[] methods = {};
+        String[] classes = {};
+        String[] methods = {"main"};
         File sourceFolder = new File("pdg/smalls");
         File[] sourcePdgFiles = sourceFolder.listFiles();
 
@@ -51,7 +51,7 @@ public class Main {
     private static void comparePDGs() throws Exception {
         SdgComparor comparor = new SdgComparor();
         comparor.compare(sdgs.getFirst(), sdgs.get(1));
-        comparor.save("./compareResults/", "2.txt");
+        comparor.save("./compareResults/", "3.txt");
     }
 
 
