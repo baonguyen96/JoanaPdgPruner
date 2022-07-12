@@ -6,3 +6,7 @@ backup/
 target/
 Would skip repository bin/
 bin/
+outPDG/
+compareResults/
+*.class
+/outPDG/*

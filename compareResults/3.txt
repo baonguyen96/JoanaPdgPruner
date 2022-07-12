@@ -1,4 +1,4 @@
-[PDG 1]              [PDG 2]
+<PDG 1>              <PDG 2>
 Node 9               Node 9
 Node 17              Node 17
 
